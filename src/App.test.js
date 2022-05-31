@@ -12,6 +12,21 @@ test('should have initial conditions', async () => {
 	expect(checkbox).not.toBeChecked();
 });
 
+test('should change button state after check', async () => {
+	render(<App />);
+
+	const button = await screen.findByRole('button', { name: /change to blue/i });
+	const checkbox = await screen.findByRole('checkbox');
+
+	fireEvent.click(checkbox);
+	expect(checkbox).toBeChecked();
+	expect(button).toBeDisabled();
+
+	fireEvent.click(checkbox);
+	expect(checkbox).not.toBeChecked();
+	expect(button).toBeEnabled();
+});
+
 test('button has correct initial color', async () => {
 	render(<App />);
 	const button = await screen.findByRole('button', { name: /change to blue/i });
