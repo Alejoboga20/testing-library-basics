@@ -5,7 +5,8 @@ const App = () => {
 	const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
 	const handleOnClick = () => setIsPrimaryColor(!isPrimaryColor);
-	const handleOnCheck = () => setIsButtonDisabled(!isButtonDisabled);
+
+	const handleOnCheck = (e) => setIsButtonDisabled(e.target.checked);
 
 	return (
 		<div className='App'>
