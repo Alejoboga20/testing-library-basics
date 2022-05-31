@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './App.css';
 
 const App = () => {
 	const [isPrimaryColor, setIsPrimaryColor] = useState(true);
@@ -15,6 +14,8 @@ const App = () => {
 				>
 					{isPrimaryColor ? 'Change to Blue' : 'Change to Red'}
 				</button>
+
+				<input type='checkbox' value={!isPrimaryColor} />
 			</div>
 		</div>
 	);

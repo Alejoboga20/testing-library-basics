@@ -2,6 +2,16 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 import App from './App';
 
+test('should have initial conditions', async () => {
+	render(<App />);
+
+	const button = await screen.findByRole('button', { name: /change to blue/i });
+	expect(button).toBeEnabled();
+
+	const checkbox = await screen.findByRole('checkbox');
+	expect(checkbox).not.toBeChecked();
+});
+
 test('button has correct initial color', async () => {
 	render(<App />);
 	const button = await screen.findByRole('button', { name: /change to blue/i });
