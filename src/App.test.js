@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import App from './App';
+import App, { replaceCamelWithSpaces } from './App';
 
 test('should have initial conditions', async () => {
 	render(<App />);
@@ -68,4 +68,18 @@ test('button turns blue when clicked and text changed', async () => {
 	fireEvent.click(button);
 	expect(button).toHaveStyle({ backgroundColor: 'blue' });
 	expect(button).toHaveTextContent('Change to Red');
+});
+
+describe('spaces before camel-case capital letters', () => {
+	test('should work for no inner capital letters', () => {
+		expect(replaceCamelWithSpaces('Red')).toBe('Red');
+	});
+
+	test('should work for one inner capital letter', () => {
+		expect(replaceCamelWithSpaces('MidnightBlue')).toBe('Midnight Blue');
+	});
+
+	test('should work for multiple inner capital letters', () => {
+		expect(replaceCamelWithSpaces('MediumVioletRed')).toBe('Medium Violet Red');
+	});
 });
