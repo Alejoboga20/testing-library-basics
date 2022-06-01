@@ -8,7 +8,7 @@ test('should have initial conditions', async () => {
 	const button = await screen.findByRole('button', { name: /change to blue/i });
 	expect(button).toBeEnabled();
 
-	const checkbox = await screen.findByRole('checkbox');
+	const checkbox = await screen.findByRole('checkbox', { name: 'Disable button' });
 	expect(checkbox).not.toBeChecked();
 });
 

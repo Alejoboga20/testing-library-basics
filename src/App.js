@@ -19,7 +19,13 @@ const App = () => {
 					{isPrimaryColor ? 'Change to Blue' : 'Change to Red'}
 				</button>
 
-				<input type='checkbox' value={isButtonDisabled} onChange={handleOnCheck} />
+				<input
+					id='disable-button-checkbox'
+					type='checkbox'
+					value={isButtonDisabled}
+					onChange={handleOnCheck}
+				/>
+				<label htmlFor='disable-button-checkbox'>Disable button</label>
 			</div>
 		</div>
 	);
