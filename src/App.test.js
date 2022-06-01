@@ -27,6 +27,26 @@ test('should change button state after check', async () => {
 	expect(button).toBeEnabled();
 });
 
+test('should change button color to gray when disabled', async () => {
+	render(<App />);
+
+	const button = await screen.findByRole('button', { name: /change to blue/i });
+	const checkbox = await screen.findByRole('checkbox');
+
+	fireEvent.click(checkbox);
+	expect(button).toHaveStyle({ backgroundColor: 'gray' });
+
+	fireEvent.click(checkbox);
+	expect(button).toHaveStyle({ backgroundColor: 'red' });
+
+	fireEvent.click(button);
+	fireEvent.click(checkbox);
+	expect(button).toHaveStyle({ backgroundColor: 'gray' });
+
+	fireEvent.click(checkbox);
+	expect(button).toHaveStyle({ backgroundColor: 'blue' });
+});
+
 test('button has correct initial color', async () => {
 	render(<App />);
 	const button = await screen.findByRole('button', { name: /change to blue/i });

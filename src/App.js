@@ -13,7 +13,7 @@ const App = () => {
 			<div>
 				<button
 					disabled={isButtonDisabled}
-					style={{ backgroundColor: isPrimaryColor ? 'red' : 'blue' }}
+					style={{ backgroundColor: isButtonDisabled ? 'gray' : isPrimaryColor ? 'red' : 'blue' }}
 					onClick={handleOnClick}
 				>
 					{isPrimaryColor ? 'Change to Blue' : 'Change to Red'}
