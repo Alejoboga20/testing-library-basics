@@ -5,7 +5,7 @@ import App, { replaceCamelWithSpaces } from './App';
 test('should have initial conditions', async () => {
 	render(<App />);
 
-	const button = await screen.findByRole('button', { name: /change to blue/i });
+	const button = await screen.findByRole('button', { name: /change to Midnight Blue/i });
 	expect(button).toBeEnabled();
 
 	const checkbox = await screen.findByRole('checkbox', { name: 'Disable button' });
@@ -15,7 +15,7 @@ test('should have initial conditions', async () => {
 test('should change button state after check', async () => {
 	render(<App />);
 
-	const button = await screen.findByRole('button', { name: /change to blue/i });
+	const button = await screen.findByRole('button', { name: /change to Midnight Blue/i });
 	const checkbox = await screen.findByRole('checkbox');
 
 	fireEvent.click(checkbox);
@@ -30,44 +30,44 @@ test('should change button state after check', async () => {
 test('should change button color to gray when disabled', async () => {
 	render(<App />);
 
-	const button = await screen.findByRole('button', { name: /change to blue/i });
+	const button = await screen.findByRole('button', { name: /change to Midnight Blue/i });
 	const checkbox = await screen.findByRole('checkbox');
 
 	fireEvent.click(checkbox);
 	expect(button).toHaveStyle({ backgroundColor: 'gray' });
 
 	fireEvent.click(checkbox);
-	expect(button).toHaveStyle({ backgroundColor: 'red' });
+	expect(button).toHaveStyle({ backgroundColor: 'MediumVioletRed' });
 
 	fireEvent.click(button);
 	fireEvent.click(checkbox);
 	expect(button).toHaveStyle({ backgroundColor: 'gray' });
 
 	fireEvent.click(checkbox);
-	expect(button).toHaveStyle({ backgroundColor: 'blue' });
+	expect(button).toHaveStyle({ backgroundColor: 'MidnightBlue' });
 });
 
 test('button has correct initial color', async () => {
 	render(<App />);
-	const button = await screen.findByRole('button', { name: /change to blue/i });
+	const button = await screen.findByRole('button', { name: /change to Midnight Blue/i });
 
-	expect(button).toHaveStyle({ backgroundColor: 'red' });
+	expect(button).toHaveStyle({ backgroundColor: 'MediumVioletRed' });
 });
 
 test('button has correct initial text', async () => {
 	render(<App />);
-	const button = await screen.findByRole('button', { name: /change to blue/i });
+	const button = await screen.findByRole('button', { name: /change to Midnight Blue/i });
 
-	expect(button).toHaveTextContent('Change to Blue');
+	expect(button).toHaveTextContent('Change to Midnight Blue');
 });
 
-test('button turns blue when clicked and text changed', async () => {
+test('button turns MidnightBlue when clicked and text changed', async () => {
 	render(<App />);
-	const button = await screen.findByRole('button', { name: /change to blue/i });
+	const button = await screen.findByRole('button', { name: /change to Midnight Blue/i });
 
 	fireEvent.click(button);
-	expect(button).toHaveStyle({ backgroundColor: 'blue' });
-	expect(button).toHaveTextContent('Change to Red');
+	expect(button).toHaveStyle({ backgroundColor: 'MidnightBlue' });
+	expect(button).toHaveTextContent('Change to Medium Violet Red');
 });
 
 describe('spaces before camel-case capital letters', () => {

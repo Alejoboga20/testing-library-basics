@@ -17,10 +17,19 @@ const App = () => {
 			<div>
 				<button
 					disabled={isButtonDisabled}
-					style={{ backgroundColor: isButtonDisabled ? 'gray' : isPrimaryColor ? 'red' : 'blue' }}
+					style={{
+						backgroundColor: isButtonDisabled
+							? 'gray'
+							: isPrimaryColor
+							? 'MediumVioletRed'
+							: 'MidnightBlue',
+						color: 'white',
+					}}
 					onClick={handleOnClick}
 				>
-					{isPrimaryColor ? 'Change to Blue' : 'Change to Red'}
+					{isPrimaryColor
+						? `Change to ${replaceCamelWithSpaces('MidnightBlue')}`
+						: `Change to ${replaceCamelWithSpaces('MediumVioletRed')}`}
 				</button>
 
 				<input
